@@ -28,7 +28,7 @@ const Home = () => {
        
        {places.length > 0 &&
          places.map((place, index) => <Link to={"/home-place/"+place._id} key={index} className="card">
-           <img src={"https://ezystay-backend.onrender.com/"+place.addedphotos[0]} alt="" />
+           <img src={"https://ezystay-backend.onrender.com/uploads/"+place.addedphotos[0]} alt="" />
            <div className="details">
            <h2>{place.title}</h2>
            <p><IoLocationOutline className="location_icon" />{place.address}</p>
