@@ -8,7 +8,11 @@
     flex-wrap: wrap;
     justify-content: center;
     background-color: black;
-    
+    height: 100vh;
+    overflow-y: scroll;
+}
+.place_outer::-webkit-scrollbar{
+    display: none;
 }
 .new-place{
     display: flex;
