@@ -1,0 +1,112 @@
+.home_block{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+.home_block>h1{
+    margin-top: 20px;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    width: 100%;
+    border: none;
+}
+.home{
+    background-color: black;
+    width: 100vw;
+    min-height: 100vh;
+}
+@media (max-width:671px) {
+    h1{
+        font-size: 17px;
+        border: 1px solid black;
+        outline: none;
+    }
+    
+}
+.home{
+    width: 100vw;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.card{
+    text-decoration: none;
+    color: white;
+    width:300px;
+    border-radius: 20px;
+    margin: 10px;
+    background-color: rgba(3, 3, 20, 0.377);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    position: relative;
+    border: 1px solid rgba(240, 240, 240, 0.048) ;
+    &:hover
+{
+        border: 1px solid rgba(175, 175, 175, 0.219);
+    }
+    h2{
+        color: white;
+    }
+    img{
+       object-fit: cover;
+       aspect-ratio: 1;
+       width: 100%;
+       border-top-right-radius:18px ;
+       border-top-left-radius:18px ;
+       
+}
+.details{
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    width: 100%;
+}
+
+h3{
+    border-top: 1px solid rgba(128, 128, 128, 0.336);
+    color: white;
+}
+.star-icon{
+    margin-top: 10px;
+    color: rgb(247, 247, 35);
+}
+span{
+    color: rgba(226, 226, 226, 0.678);
+    font-weight: 400;
+    font-size: 12px;
+}
+.des{
+    height: 50px;
+    width: 100%;
+    overflow: hidden;
+}
+}
+
+p{
+    display: flex;
+    align-items: center;
+    .location_icon{
+        height: 15px;
+        width: 15px;
+    }
+}
+@media (max-width: 875px) {
+    .price_text{
+        width: 100%;
+        font-size: 20px;
+        span{
+        display:inline;
+            font-size: 15px;
+        }
+    }
+    
+}

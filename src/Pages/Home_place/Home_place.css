@@ -1,0 +1,263 @@
+.home-place{
+    padding: 10px 60px;
+    /* background-color: #f1ecec; */
+    /* background-color: white; */
+    position: relative;
+    color: white;
+    background-color: black;
+    h2{
+        color: white;
+
+    }
+}
+a{
+    color:white;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    .location_icon{
+        margin-top: 3px;
+        height: 20px;
+        width: 20px;
+    }
+}
+
+
+.perks{
+    width: 100%;
+    margin-top: 10px;
+    p{
+        color: white;
+        font-size: 15px;
+        margin: 10px;
+        padding: 3px 10px;
+     .correct_icon{
+        color: white;
+
+       
+    margin-right: 5px;
+ }
+    }
+}
+
+.more_info{
+    color: white;
+    /* margin-top: 10px; */
+    padding: 20px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+.other-block{
+    margin-top: 10px;
+    display: flex;
+    color: white;
+   
+}
+.time{
+    /* color: rgba(255, 255, 255, 0.479); */
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    margin-right: 5px;
+    padding: 10px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    font-size: 16px;
+    width: 65%;
+    p{
+        color: rgba(255, 255, 255, 0.479);
+
+    }
+}
+.description{
+    p{
+        color: rgba(255, 255, 255, 0.479);
+
+    }
+  
+}
+.more_info>p{
+    color: rgba(255, 255, 255, 0.479);
+}
+p>b{
+    /* color: rgba(255, 255, 255, 0.479); */
+    color: white;
+font-weight: 400;
+    margin-right: 5px;
+}
+.perks>p{
+    padding: 5px 10px;
+    color: rgba(255, 255, 255, 0.479);
+    
+}
+.check_in{
+    margin-top: 10px;
+}
+.book{
+    width: 35%;
+    background-color: black;
+    color: white;
+    padding: 20px;
+    margin-left: 5px;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.price{
+    font-weight: 600;
+    span{
+        font-size: 15px;
+        color: rgba(160, 160, 160, 0.719);
+    }
+}
+.booking_btn{
+    margin-top: 10px;
+    width: 94%;
+    height: 50px;
+    background-color: rgb(218, 218, 218);
+    border: none;
+    color: black;
+    border-radius: 15px;
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+.check{
+    margin-top: 15px;
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-around;
+
+    .check_inputs>input{
+        padding-right: 5px;
+        height: 50px;
+        color: white;
+        background-color: rgba(0, 0, 0, 0.034);
+    }
+
+}
+.check_guest{
+    width: 94%;
+}
+.check_guest>input{
+    height: 50px;
+    width: 100%;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.021);
+}
+.swiper {
+    margin-top: 20px;
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+  
+  .swiper-slide {
+    text-align: center;
+    font-size: 18px;
+    background: #fff;
+  
+    /* Center slide text vertically */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .swiper {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+
+.slider_img{
+    img{
+        height: 500px;
+        width: 100%;
+        object-fit: cover;
+    }
+  }
+  @media (max-width:781px) {
+    .slider_img{
+        img{
+            height: 300px;
+            width: 100%;
+            object-fit: cover;
+        }
+      }
+    
+  }
+  @media (max-width:591px) {
+    .home-place{
+        padding: 10px 20px;
+    }
+    
+  }
+  @media (max-width:981px) {
+    .other-block{
+        display: flex;
+        flex-direction: column-reverse;
+    }
+    .time{
+        width: 100%;
+    }
+    .book{
+        width: 100%;
+        h1{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            span{
+                margin-top:10px;
+            }
+        }
+        
+    }
+    .check{
+        width: 94%;
+        display: flex;
+        flex-direction: column;
+    }          
+    
+  }
+  label{
+    width: 100%;
+    display: inline;
+  }
+  @media (max-width:530px) {
+    .book{
+        h1{
+            font-size: 25px;
+            span{
+                font-size: 13px;
+                display: inline;
+            }
+
+        }
+    }
+    
+  }

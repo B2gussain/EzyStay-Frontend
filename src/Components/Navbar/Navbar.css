@@ -1,0 +1,70 @@
+.navbar {
+    height: 60px;
+    width: 100vw;
+    background-color: black;
+    /* background-color: rgb(15, 15, 15); */
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar>.nav-logo{
+    text-decoration: none;
+    color: white;
+    font-size: 25px;
+    font-weight: 800;
+
+    margin-left: 20px;
+}
+
+.menu {
+    color: black;
+    cursor: pointer;
+    margin-right: 20px;
+    height: 45px;
+    /* width: 100px; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /*background-color: rgb(130, 109, 150);
+    */
+    background-color: white;
+    border: 1px solid grey;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    gap: 10px;
+    padding-left: 20px;
+    padding-right: 5px;
+}
+
+.menu>.menu-icon {
+    width: 30px;
+    height: 30px;
+    color: black;
+    font-weight: bolder;
+}
+.menu>.dp{
+    height: 80%;
+    aspect-ratio: 1;
+    /* background-color: aqua; */
+    /* border: 1px solid black; */
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}
+.menu>.dp>.dp_img{
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+}

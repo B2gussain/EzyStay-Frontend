@@ -1,0 +1,67 @@
+.myplaces{
+    background-color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+
+}
+.place_outer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: black;
+    
+}
+.new-place{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    background-color:rgb(255, 255, 255);
+    height: 40px;
+    color: rgb(0, 0, 0);
+   .add-icon{
+    height: 20px;
+    width: 20px;
+    margin-right: 5px;
+    color: rgb(0, 0, 0);
+   } 
+}
+.places_block{
+    margin: 10px;
+    display: flex;
+    background-color: rgba(3, 3, 20, 0.377);
+    flex-direction: column;
+    width:300px;
+    height: 400px;
+    padding: 10px;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    text-decoration: none;
+    border: 1px solid rgb(29, 29, 29);
+}
+.place-img{
+    margin: auto;
+    /*height: 100%;
+    *//*width: 50%;
+    */width:100%;
+    aspect-ratio: 1;
+    border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -o-border-radius: 5px;
+    object-fit: cover;
+}
+
+p{
+    width: 100%;
+    color: white;
+}
+    h2{
+        width: 100%;
+        font-size: 25px;
+        text-decoration: none;
+        color: rgb(255, 255, 255);
+    }
