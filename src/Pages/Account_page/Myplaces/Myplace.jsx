@@ -54,7 +54,7 @@ const Myplace = () => {
           places.map((place, index) => (
             <Link to={"/account/places/"+place._id} key={index} className="places_block">
               {place.addedphotos.length > 0 && (
-                <img src={"https://ezystay-backend.onrender.com/uploads/"+place.addedphotos[0]} className='place-img' alt="" />
+                <img src={place.addedphotos[0]} className='place-img' alt="" />
               )}
              
                 <h2>{place.title}</h2>

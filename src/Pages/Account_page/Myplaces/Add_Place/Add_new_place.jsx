@@ -168,7 +168,7 @@ const handleDeletePhoto = async (photoToDelete) => {
              
               <RxCross1  className="delete_button" onClick={() => handleDeletePhoto(photo)} />
               
-               <img src={`https://ezystay-backend.onrender.com/uploads/${photo}`} className='added_photo_list' alt="" />
+               <img src={`${photo}`} className='added_photo_list' alt="" />
             </div>
             ))}
            

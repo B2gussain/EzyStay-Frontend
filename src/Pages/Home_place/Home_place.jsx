@@ -97,7 +97,7 @@ const Home_place = () => {
 >
   {places?.addedphotos?.map((place, index) => (
     <SwiperSlide key={index} className="slider_img">
-      <img src={`https://ezystay-backend.onrender.com/uploads/${place}`} alt={`Slide ${index}`} />
+      <img src={`${place}`} alt={`Slide ${index}`} />
     </SwiperSlide>
   ))}
 </Swiper>

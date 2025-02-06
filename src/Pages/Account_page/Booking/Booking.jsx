@@ -58,7 +58,7 @@ const Booking = () => {
                 <div className="inner_a">
                   {book.places.addedphotos.length > 0 && (
                     <img
-                      src={`https://ezystay-backend.onrender.com/uploads/${book.places.addedphotos[0]}`}
+                      src={`${book.places.addedphotos[0]}`}
                       alt=""
                     />
                   )}
