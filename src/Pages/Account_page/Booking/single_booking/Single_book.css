@@ -10,13 +10,10 @@
 .loading_booking{
     height: 100vh;
     width: 100vw;
-    display: grid;
-    place-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: black;
-    p{
-        text-align: center;
-        width: 100%;
-    }
 }
 .head{
     margin-top: 40px;
