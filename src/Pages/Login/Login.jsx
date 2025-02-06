@@ -4,6 +4,7 @@ import {  FaEyeSlash, FaEye } from "react-icons/fa";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "./Login.css"
+import Login_loader from "../../Components/Login_loader/Login_loader"
 
 const Login = () => {
   const open_eye = useRef(null);
@@ -15,6 +16,8 @@ const Login = () => {
   const [password, setPassword] = useState("");
   const [passwordType, setPasswordType] = useState(true);
   const [formType, setFormType] = useState(true); 
+  const [loader, setloader] = useState(false); 
+
 
   const API_BASE_URL = `https://ezystay-backend.onrender.com/auth`; 
 
@@ -38,6 +41,7 @@ const Login = () => {
  
   const handleSignin = async (e) => {
     e.preventDefault();
+    setloader(true)
     try {
       const response = await axios.post(`${API_BASE_URL}/signin`, {
         email,
@@ -64,18 +68,20 @@ const Login = () => {
         alert("An unexpected error occurred. Please try again.");
       }
     }
+    setloader(false)
   };
 
   const handleSignup = async (e) => {
     e.preventDefault();
     try {
+      setloader(true)
       await axios.post(`${API_BASE_URL}/signup`, {
         name,
         email,
         password,
       });
       alert("Signup successful! You can now log in.");
-      
+      setloader(false)
       formTypeToggle(); 
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -89,7 +95,7 @@ const Login = () => {
 
   return (
     <div className="Login">
-      {formType ? (
+{loader?<Login_loader/>:<>  {formType ? (
         <form className="login-form" onSubmit={handleSignin}>
           <div
             className="title login_title"
@@ -198,7 +204,7 @@ const Login = () => {
             </p>
           </div>
         </form>
-      )}
+      )}</>}
     </div>
   );
 };
