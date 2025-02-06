@@ -40,7 +40,7 @@ const SingleBook = () => {
 
   
   if (!booking) {
-    return <p>Loading booking details...</p>;
+    return <div className="loading_booking"><p>Loading booking details...</p></div>;
   }
   
 

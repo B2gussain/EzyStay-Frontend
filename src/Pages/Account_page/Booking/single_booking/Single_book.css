@@ -7,6 +7,12 @@
     position: relative;
     background-color: black;
 }
+.loading_booking{
+    height: 100vh;
+    width: 100vw;
+    display: grid;
+    place-items: center;
+}
 .head{
     margin-top: 40px;
     text-align: center;
