@@ -28,7 +28,7 @@ const Booking = () => {
       );
 
       setbooking(response.data);
-      setskeleton(false) // Update state with fetched data
+      setbookskeleton(false) // Update state with fetched data
     };
     fetchBookings();
   }, []);

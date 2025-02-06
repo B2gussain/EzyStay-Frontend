@@ -135,6 +135,9 @@ font-weight: 400;
     -moz-border-radius: 15px;
     -ms-border-radius: 15px;
     -o-border-radius: 15px;
+    span{
+        display: inline;
+    }
 }
 .check{
     margin-top: 15px;
