@@ -1,0 +1,214 @@
+/* .card_page{
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: black;
+}
+.card_l{
+    text-decoration: none;
+    color: white;
+    width:300px;
+    border-radius: 20px;
+    margin: 10px;
+    background-color: rgba(3, 3, 20, 0.377);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    position: relative;
+    border: 1px solid rgba(240, 240, 240, 0.048) ;
+    &:hover
+{
+        border: 1px solid rgba(175, 175, 175, 0.219);
+    }
+    .h2_l{
+        margin-top: 10px;
+        height: 30px;
+        width: 80%;
+        border-radius: 10px;
+        background-color: rgba(255, 255, 255, 0.096);
+        -webkit-border-radius: 10px;
+        -moz-border-radius: 10px;
+        -ms-border-radius: 10px;
+        -o-border-radius: 10px;
+}
+.h3_l{
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-top: 10px;
+    height: 30px;
+    width: 90%;
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.11);
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+    .img_l{
+       background-color:rgba(255, 255, 255, 0.089) ;
+       aspect-ratio: 1;
+       width: 100%;
+       border-top-right-radius:18px ;
+       border-top-left-radius:18px ;
+       
+    }
+
+    .details_l{
+        padding-left: 10px;
+        padding-right: 10px;
+        color: white;
+        width: 100%;
+    }
+    .stars-l{
+        margin-left: 10px;
+        margin-top: 10px;
+    }
+    .star-icon-l{
+        color: rgba(255, 255, 255, 0.089) ;
+    }
+    .price_text_l{
+        margin-left: 10px;
+        color:rgba(255, 255, 255, 0.089) ;
+        span{
+            display: inline;
+        }
+    }
+    .location_icon_l{
+        color:rgba(255, 255, 255, 0.089) ;
+    }
+}
+@media (max-width: 875px) {
+    .price_text_l {
+        width: 100%;
+        font-size: 20px;
+
+        span {
+            display: inline;
+            font-size: 15px;
+        }
+    }
+
+} */
+.card_page {
+    height: 100%;
+    width: 100vw;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    background-color: black;
+  }
+  
+  .card_l {
+    text-decoration: none;
+    color: white;
+    width: 300px;
+    border-radius: 20px;
+    margin: 10px;
+    background-color: rgba(3, 3, 20, 0.377);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 20px;
+    position: relative;
+    border: 1px solid rgba(240, 240, 240, 0.048);
+  }
+  
+  .card_l:hover {
+    border: 1px solid rgba(175, 175, 175, 0.082);
+  }
+  
+  .h2_l,
+  .h3_l{
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .h2_l {
+    margin-top: 10px;
+    height: 30px;
+    width: 80%;
+  }
+  
+  .h3_l {
+    display: flex;
+    align-items: center;
+    padding-left: 10px;
+    margin-top: 10px;
+    height: 30px;
+    width: 90%;
+  }
+  
+  .img_l {
+    aspect-ratio: 1;
+    width: 100%;
+    border-top-right-radius: 18px;
+    border-top-left-radius: 18px;
+  }
+  
+  .details_l {
+    padding-left: 10px;
+    padding-right: 10px;
+    color: white;
+    width: 100%;
+  }
+  
+  .stars-l {
+    margin-left: 10px;
+    margin-top: 10px;
+  }
+  
+  .star-icon-l {
+    color: rgba(255, 255, 255, 0.089);
+  }
+  
+  .price_text_l {
+    margin-left: 10px;
+    color: rgba(255, 255, 255, 0.089);
+  }
+  
+  .location_icon_l {
+    color: rgba(255, 255, 255, 0.089);
+  }
+  
+  @keyframes shimmer {
+    0% {
+      background-position: -200%;
+    }
+    100% {
+      background-position: 200%;
+    }
+  }
+  
+  .h2_l,
+  .h3_l,
+  .img_l {
+    background: linear-gradient(90deg, rgba(255, 255, 255, 0.1) 25%, rgba(253, 253, 253, 0.048) 50%, rgba(255, 255, 255, 0.1) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 3s infinite reverse ease-in-out;
+    -webkit-animation: shimmer 3s infinite reverse ease-in-out;
+}
+  
+  @media (max-width: 875px) {
+    .price_text_l {
+      width: 100%;
+      font-size: 20px;
+  
+      span {
+        display: inline;
+        font-size: 15px;
+      }
+    }
+  }
+  

@@ -5,8 +5,10 @@ import Navbar from "../../Components/Navbar/Navbar";
 import axios from "axios";
 import { LiaStarSolid } from "react-icons/lia";
 import { IoLocationOutline } from "react-icons/io5";
+import Skeleton from "../../Components/skeleton/Skeleton"
 const Home = () => {
   const [places, setplaces] = useState([]);
+  const [skeleton, setskeleton] = useState(true);
   const token = localStorage.getItem("token");
 
   if (!token) {
@@ -16,6 +18,7 @@ const Home = () => {
   useEffect(() => {
     axios.get("https://ezystay-backend.onrender.com/all-places").then((Response) => {
       setplaces(Response.data);
+      setskeleton(false)
     });
   }, []);
 
@@ -24,7 +27,7 @@ const Home = () => {
       <Navbar />
       <div className="home_block">
       <h1>Find the best getaways for you</h1>
-      <div className="home">
+      {skeleton?<Skeleton/>:<div className="home">
        
        {places.length > 0 &&
          places.map((place, index) => <Link to={"/home-place/"+place._id} key={index} className="card">
@@ -38,7 +41,7 @@ const Home = () => {
            </div>
                  
            </Link>)}
-     </div> 
+     </div> }
       </div>
      
     </>
