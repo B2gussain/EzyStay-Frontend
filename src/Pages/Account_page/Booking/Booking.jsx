@@ -8,11 +8,11 @@ import { FaUserAlt } from "react-icons/fa";
 import { FaListUl } from "react-icons/fa";
 import { HiHomeModern } from "react-icons/hi2";
 import axios from "axios";
-import Skeleton from "../../../Components/skeleton/Skeleton";
+import Booking_Skeleton from "../../../Components/Booking_Skeleton/Booking_Skeleton"
 
 const Booking = () => {
   const [booking, setbooking] = useState([]);
-  const [skeleton, setskeleton] = useState(true);
+  const [bookskeleton, setbookskeleton] = useState(true);
   const token = localStorage.getItem("token");
 
   if (!token) {
@@ -53,7 +53,8 @@ const Booking = () => {
           </Link>
         </div>
         <div className="booking">
-          {skeleton?<Skeleton/>:<> {booking.map((book) => (
+
+          {bookskeleton?<Booking_Skeleton/>:<> {booking.map((book) => (
             <Link
               to={"/account/booking/" + book._id}
               key={book._id}

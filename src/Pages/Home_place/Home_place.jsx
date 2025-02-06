@@ -12,6 +12,7 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 import 'swiper/css/navigation';
 import { Pagination, Navigation } from 'swiper/modules';
+import Home_place_skeleton from "../../Components/Home_place_skeleton/Home_place_skeleton"
 
 const Home_place = () => {
   const [places, setplaces] = useState([]);
@@ -21,6 +22,8 @@ const Home_place = () => {
   const [name, setname] = useState("");
   const [phnumber, setphnumber] = useState("");
   const [redirect, setredirect] = useState("");
+  const [home_loader, sethome_loader] = useState(true);
+
   
 
   const { id } = useParams();
@@ -35,6 +38,7 @@ const Home_place = () => {
     }
     axios.get("https://ezystay-backend.onrender.com/home-place/" + id).then((response) => {
       setplaces(response.data);
+      sethome_loader(false)
     });
   }, [id]);
 
@@ -77,7 +81,8 @@ const Home_place = () => {
     <>
       <Navbar />
         <>
-          <div className="home-place">
+
+{home_loader?<Home_place_skeleton/>:  <div className="home-place">
             <h2>{places.title}</h2>
             <a
               href={"https://maps.google.com/?q=" + places.address}
@@ -198,7 +203,11 @@ const Home_place = () => {
               <b>Extra-Info</b>
               <p>{places.extrainfo}</p>
             </div>
-          </div>
+          </div>}
+
+
+
+        
         </>
     
     </>
