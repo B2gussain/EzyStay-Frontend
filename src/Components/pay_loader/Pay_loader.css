@@ -1,7 +1,7 @@
 /* From Uiverse.io by SelfMadeSystem */ 
 /* Inspired by: m3.material.io/components/progress-indicators/overview */
 
-.loader {
+.p_loader {
   width: 30px;
   /* Subpixels get cut off */
   overflow: visible;
@@ -69,7 +69,7 @@
   }
 }
 
-.track {
+.p_track {
   stroke: var(--track);
   stroke-linecap: round;
   stroke-dashoffset: 360;
