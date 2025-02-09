@@ -8,6 +8,8 @@ import { Routes, Route } from "react-router-dom";
 import Add_new_place from "./Pages/Account_page/Myplaces/Add_Place/Add_new_place";
 import Home_place from "./Pages/Home_place/Home_place"
 import Single_book from "./Pages/Account_page/Booking/single_booking/Single_book";
+import Succes from "./Pages/payment_result/Succes";
+import Fail from "./Pages/payment_result/Fail"
 function App() {
   return (
     <>
@@ -20,6 +22,8 @@ function App() {
         <Route path="/account/myplaces/new" element={<Add_new_place/>} />
         <Route path="/account/places/:id" element={<Add_new_place/>} />
         <Route path="/home-place/:id" element={<Home_place/>} />
+        <Route path="/success" element={<Succes />} />
+        <Route path="/fail" element={<Fail />} />
           <Route path="/Home" element={<Home />} />
           <Route path="/" element={<Login />} />
         </Routes>

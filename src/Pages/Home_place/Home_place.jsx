@@ -6,13 +6,14 @@ import { IoLocationOutline } from "react-icons/io5";
 import { IoMdArrowBack } from "react-icons/io";
 import { SiTicktick } from "react-icons/si";
 import axios from "axios";
-import { compareAsc, differenceInCalendarDays, format } from "date-fns";
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/pagination';
-import 'swiper/css/navigation';
-import { Pagination, Navigation } from 'swiper/modules';
-import Home_place_skeleton from "../../Components/Home_place_skeleton/Home_place_skeleton"
+import { differenceInCalendarDays } from "date-fns";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Pagination, Navigation } from "swiper/modules";
+import Home_place_skeleton from "../../Components/Home_place_skeleton/Home_place_skeleton";
+import Pay_loader from "../../Components/pay_loader/Pay_loader";
 
 const Home_place = () => {
   const [places, setplaces] = useState([]);
@@ -23,8 +24,7 @@ const Home_place = () => {
   const [phnumber, setphnumber] = useState("");
   const [redirect, setredirect] = useState("");
   const [home_loader, sethome_loader] = useState(true);
-
-  
+  const [pay_loader, setpay_loader] = useState(false);
 
   const { id } = useParams();
   const token = localStorage.getItem("token");
@@ -36,12 +36,13 @@ const Home_place = () => {
     if (!id) {
       return;
     }
-    axios.get("https://ezystay-backend.onrender.com/home-place/" + id).then((response) => {
-      setplaces(response.data);
-      sethome_loader(false)
-    });
+    axios
+      .get("https://ezystay-backend.onrender.com/home-place/" + id)
+      .then((response) => {
+        setplaces(response.data);
+        sethome_loader(false);
+      });
   }, [id]);
-
 
   let numberofdays = 0;
 
@@ -52,10 +53,9 @@ const Home_place = () => {
     );
   }
 
-  const Book_this_place =async () => {
-    const response = await axios.post(
-      "https://ezystay-backend.onrender.com/booking",
-      {
+  const Book_this_place = async () => {
+    try {
+      const bookingData = {
         name,
         maxguest,
         checkin,
@@ -63,26 +63,45 @@ const Home_place = () => {
         price: numberofdays * places.price,
         places: places._id,
         phnumber,
-      },
-      {
-        headers: { Authorization: `Bearer ${token}` }
+      };
+
+      // Store booking data in localStorage before redirecting
+      localStorage.setItem("pendingBooking", JSON.stringify(bookingData));
+      // Call backend to create a payment session
+      const paymentResponse = await axios.post(
+        "https://ezystay-backend.onrender.com/payment",
+        {
+          amount: numberofdays * places.price,
+          name,
+        }
+      );
+      setpay_loader(true);
+      if (paymentResponse.status === 200 && paymentResponse.data.url) {
+        console.log("Redirecting to:", paymentResponse.data.url);
+        window.location.href = paymentResponse.data.url;
+        // Redirect to Stripe checkout
+      } else {
+        console.error("Failed to get payment URL", paymentResponse.data);
       }
-    );
-
-    const bookingid = response.data._id;
-    setredirect(`/account/booking/${bookingid}`);
+    } catch (error) {
+      console.error(
+        "Error processing booking:",
+        error.response?.data || error.message
+      );
+    }
   };
-
-  if(redirect){
-  return <Navigate to={redirect}/>
+  if (redirect) {
+    return <Navigate to={redirect} />;
   }
 
   return (
     <>
       <Navbar />
-        <>
-
-{home_loader?<Home_place_skeleton/>:  <div className="home-place">
+      <>
+        {home_loader ? (
+          <Home_place_skeleton />
+        ) : (
+          <div className="home-place">
             <h2>{places.title}</h2>
             <a
               href={"https://maps.google.com/?q=" + places.address}
@@ -91,23 +110,22 @@ const Home_place = () => {
               <IoLocationOutline className="location_icon" />
               {places.address}
             </a>
-          <Swiper
-  slidesPerView={1}
-  spaceBetween={30}
-  loop={true}
-  pagination={{ clickable: true }}
-  navigation={true}
-  modules={[Pagination, Navigation]}
-  className="mySwiper"
->
-  {places?.addedphotos?.map((place, index) => (
-    <SwiperSlide key={index} className="slider_img">
-      <img src={`${place}`} alt={`Slide ${index}`} />
-    </SwiperSlide>
-  ))}
-</Swiper>
+            <Swiper
+              slidesPerView={1}
+              spaceBetween={30}
+              loop={true}
+              pagination={{ clickable: true }}
+              navigation={true}
+              modules={[Pagination, Navigation]}
+              className="mySwiper"
+            >
+              {places?.addedphotos?.map((place, index) => (
+                <SwiperSlide key={index} className="slider_img">
+                  <img src={`${place}`} alt={`Slide ${index}`} />
+                </SwiperSlide>
+              ))}
+            </Swiper>
 
-   
             <div className="other-block">
               <div className="time">
                 <div className="description">
@@ -161,7 +179,6 @@ const Home_place = () => {
                       onChange={(e) => setcheckout(e.target.value)}
                     />
                   </div>
-                  
                 </div>
 
                 <div className="check_guest">
@@ -190,10 +207,17 @@ const Home_place = () => {
                 )}
 
                 <button onClick={Book_this_place} className="booking_btn">
-                  Book this place
-                  {numberofdays > 0 && (
+                  {pay_loader ? (
+                    <Pay_loader />
+                  ) : (
                     <>
-                      <span>&nbsp;Rs:{numberofdays * places.price}</span>
+                      {" "}
+                      Book this place
+                      {numberofdays > 0 && (
+                        <>
+                          <span>&nbsp;Rs:{numberofdays * places.price}</span>
+                        </>
+                      )}
                     </>
                   )}
                 </button>
@@ -203,13 +227,9 @@ const Home_place = () => {
               <b>Extra-Info</b>
               <p>{places.extrainfo}</p>
             </div>
-          </div>}
-
-
-
-        
-        </>
-    
+          </div>
+        )}
+      </>
     </>
   );
 };

@@ -138,6 +138,15 @@ font-weight: 400;
     span{
         display: inline;
     }
+    &:hover{
+        color: white;
+        background-color: rgba(138, 141, 139, 0.74);
+    }
+    transition: all 0.2s ease-in-out;
+    -webkit-transition: all 0.2s ease-in-out;
+    -moz-transition: all 0.2s ease-in-out;
+    -ms-transition: all 0.2s ease-in-out;
+    -o-transition: all 0.2s ease-in-out;
 }
 .check{
     margin-top: 15px;
