@@ -15,9 +15,10 @@ const Myplace = () => {
   const [places, setPlaces] = useState([]);
   // const [skeleton, setskeleton] = useState(true);
   const token = localStorage.getItem("token");
+  const [authorized,setAuthorized]=useState(false)
 
-  if (!token) {
-    return <Navigate to="/" />;
+  if (token) {
+   setAuthorized(true)
   }
 
   useEffect(() => {
@@ -57,8 +58,7 @@ const Myplace = () => {
             <HiHomeModern className="acc-icon" />
             My Place
           </Link>
-        </div>
-        <Link to="/account/myplaces/new" className="link new-place">
+        </div>{authorized?<> <Link to="/account/myplaces/new" className="link new-place">
           <IoAdd className="add-icon" />
           Add new Place
         </Link>
@@ -88,7 +88,13 @@ const Myplace = () => {
           ) : (
             <Skeleton/>
           )}
-        </div>
+        </div></>:<>
+         <div className="booking-authorized"><h1>Signup to List your Places</h1>
+                  <br />
+                  <Link to="/Login" className="authorized-link">Go to Signup</Link></div>
+                  
+        </>}
+       
       </div>
     </>
   );

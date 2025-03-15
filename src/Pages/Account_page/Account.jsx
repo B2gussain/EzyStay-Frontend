@@ -31,9 +31,10 @@ const Account = () => {
   const name = localStorage.getItem("username");
   const email = localStorage.getItem("useremail");
   const [showAlert, setShowAlert] = useState(false);
+  const [authorized,setAuthorized]=useState(false)
 
-  if (!token) {
-    return <Navigate to="/" />;
+  if (token) {
+   setAuthorized(true)
   }
 
   const handleLogoutClick = () => {
@@ -64,8 +65,13 @@ const Account = () => {
         </div>
         <div className="my-profile-content">
           <FcBusinessman className='account_dp' />
-          <h2 className='logged-h2'>Logged in<br/> as<br/> {name}({email})</h2>
-          <button onClick={handleLogoutClick} className='logout-btn'>Log Out</button>
+          {authorized?<><h2 className='logged-h2'>Logged in<br/> as<br/> {name}({email})</h2>
+          <button onClick={handleLogoutClick} className='logout-btn'>Log Out</button></>:<>
+          <h2 className='logged-h2'>Guest</h2>
+          <Link to="/Login" className='authorized-btn'>Sign up</Link>
+          
+          </>}
+          
         </div>
       </div>
       {showAlert && <CustomAlert onConfirm={confirmLogout} onCancel={cancelLogout} />}

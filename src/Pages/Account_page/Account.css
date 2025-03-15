@@ -162,3 +162,28 @@
   .alert-cancel-btn:hover {
     background-color: #5a5a5a;
   }
+
+  .authorized-btn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    outline: none;
+    border: 1px solid black;
+    width: 150px;
+    background: white;
+    color: black;
+    border-radius: 30px;
+    -webkit-border-radius: 30px;
+    -moz-border-radius: 30px;
+    -ms-border-radius: 30px;
+    -o-border-radius: 30px;
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+    &:hover{
+      border: 1px solid white;
+      background: black;
+      color: white;
+    }
+}

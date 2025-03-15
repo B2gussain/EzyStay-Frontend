@@ -9,11 +9,8 @@ import Skeleton from "../../Components/skeleton/Skeleton"
 const Home = () => {
   const [places, setplaces] = useState([]);
   const [skeleton, setskeleton] = useState(true);
-  const token = localStorage.getItem("token");
-
-  if (!token) {
-    return <Navigate to="/" />;
-  }
+ 
+ 
 
   useEffect(() => {
     axios.get("https://ezystay-backend.onrender.com/all-places").then((Response) => {

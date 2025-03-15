@@ -27,10 +27,7 @@ const Home_place = () => {
   const [pay_loader, setpay_loader] = useState(false);
 
   const { id } = useParams();
-  const token = localStorage.getItem("token");
-  if (!token) {
-    return <Navigate to="/" />;
-  }
+ 
 
   useEffect(() => {
     if (!id) {

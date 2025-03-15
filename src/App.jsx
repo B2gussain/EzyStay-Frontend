@@ -24,8 +24,8 @@ function App() {
         <Route path="/home-place/:id" element={<Home_place/>} />
         <Route path="/success" element={<Succes />} />
         <Route path="/fail" element={<Fail />} />
-          <Route path="/Home" element={<Home />} />
-          <Route path="/" element={<Login />} />
+          <Route path="/" element={<Home />} />
+          <Route path="/Login" element={<Login />} />
         </Routes>
       </div>
     </>

@@ -61,7 +61,7 @@ const Login = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("username", name);
       localStorage.setItem("useremail", email);
-      navigate("/Home");
+      navigate("/");
     } catch (error) {
       if (error.response && error.response.status === 400) {
         const errorMessage = error.response.data.message;

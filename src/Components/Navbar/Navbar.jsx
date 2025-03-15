@@ -7,7 +7,7 @@ import {Link} from "react-router-dom"
 const Navbar = () => {
   return (
     <div className='navbar' >
-        <Link to="/home" className='nav-logo' >EzyStay</Link>
+        <Link to="/" className='nav-logo' >EzyStay</Link>
       
       <Link to="/account" className="menu">
       <CiMenuFries className='menu-icon' />

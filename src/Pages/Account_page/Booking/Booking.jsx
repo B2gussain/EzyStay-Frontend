@@ -14,9 +14,10 @@ const Booking = () => {
   const [booking, setbooking] = useState([]);
   const [bookskeleton, setbookskeleton] = useState(true);
   const token = localStorage.getItem("token");
+   const [authorized,setAuthorized]=useState(false)
 
-  if (!token) {
-    return <Navigate to="/" />;
+  if (token) {
+    setAuthorized(true)
   }
   useEffect(() => {
     const fetchBookings = async () => {
@@ -53,8 +54,7 @@ const Booking = () => {
           </Link>
         </div>
         <div className="booking">
-
-          {bookskeleton?<Booking_Skeleton/>:<> {booking.map((book) => (
+{authorized?<>{bookskeleton?<Booking_Skeleton/>:<> {booking.map((book) => (
             <Link
               to={"/account/booking/" + book._id}
               key={book._id}
@@ -104,7 +104,14 @@ const Booking = () => {
               </div>
               <h3 className="comp_text">Completed</h3>
             </Link>
-          ))}</>}
+          ))}</>}</>:<>
+          <div className="booking-authorized"><h1>Signup to see your Bookings</h1>
+          <br />
+          <Link to="/Login" className="authorized-link">Go to Signup</Link></div>
+          
+          
+          </>}
+          
          
         </div>
       </div>
