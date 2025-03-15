@@ -77,9 +77,7 @@ const Login = () => {
         console.error("Signin error:", error.message);
         setAlertMessage("An unexpected error occurred. Please try again.");
       }
-    } finally {
-      setLoader(false);
-    }
+    } setLoader(false)
   };
 
   const handleSignup = async (e) => {
@@ -100,9 +98,8 @@ const Login = () => {
         console.error("Signup error:", error.message);
         setAlertMessage("An unexpected error occurred. Please try again.");
       }
-    } finally {
-      setLoader(false);
     }
+    setLoader(false)
   };
 
   const closeAlert = () => {
