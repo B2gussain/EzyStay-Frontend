@@ -23,3 +23,7 @@ body{
 body::-webkit-scrollbar{
   display: none;
 }
+.login-button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
