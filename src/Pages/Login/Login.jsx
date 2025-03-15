@@ -61,7 +61,6 @@ const Login = () => {
       localStorage.setItem("token", token);
       localStorage.setItem("username", name);
       localStorage.setItem("useremail", email);
-      // No alert on successful signin, directly navigate
       navigate("/Home");
     } catch (error) {
       if (error.response && error.response.status === 400) {
@@ -77,9 +76,9 @@ const Login = () => {
         console.error("Signin error:", error.message);
         setAlertMessage("An unexpected error occurred. Please try again.");
       }
-    } setLoader(false)
+    }
+    setLoader(false); // Fixed semicolon
   };
-
   const handleSignup = async (e) => {
     e.preventDefault();
     setLoader(true);
@@ -90,7 +89,7 @@ const Login = () => {
         password,
       });
       setAlertMessage("Signup successful! You can now log in.");
-      formTypeToggle();
+      formTypeToggle(); // Switches to sign-in form
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setAlertMessage(`Error: ${error.response.data.message}`);
@@ -99,7 +98,7 @@ const Login = () => {
         setAlertMessage("An unexpected error occurred. Please try again.");
       }
     }
-    setLoader(false)
+    setLoader(false); // Fixed semicolon
   };
 
   const closeAlert = () => {
