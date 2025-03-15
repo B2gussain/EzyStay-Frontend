@@ -212,7 +212,7 @@ const Login = () => {
           </div>
         </form>
       )}
-      {alertMessage && <CustomAlert message={alertMessage} onClose={closeAlert} />}
+      {/* {alertMessage && <CustomAlert message={alertMessage} onClose={closeAlert} />} */}
     </div>
   );
 };
