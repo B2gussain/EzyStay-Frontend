@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import "./Account.css";
-import Navbar from '../../Components/Navbar/Navbar';
+import Navbar from "../../Components/Navbar/Navbar";
 import { Link } from "react-router-dom";
 import { FaUserAlt, FaListUl } from "react-icons/fa";
 import { HiHomeModern } from "react-icons/hi2";
@@ -31,10 +31,10 @@ const Account = () => {
   const name = localStorage.getItem("username");
   const email = localStorage.getItem("useremail");
   const [showAlert, setShowAlert] = useState(false);
-  const [authorized,setAuthorized]=useState(false)
+  const [authorized, setAuthorized] = useState(false);
 
   if (token) {
-   setAuthorized(true)
+    setAuthorized(true);
   }
 
   const handleLogoutClick = () => {
@@ -46,7 +46,7 @@ const Account = () => {
     localStorage.removeItem("token");
     localStorage.removeItem("useremail");
     setShowAlert(false);
-    navigate("/"); // Redirect to the login page
+    navigate("/home"); // Redirect to the login page
   };
 
   const cancelLogout = () => {
@@ -57,24 +57,47 @@ const Account = () => {
   return (
     <>
       <Navbar />
-      <div className='account'>
+      <div className="account">
         <div className="account_option">
-          <Link to="/account" className='my-Profile link'><FaUserAlt className='acc-icon' />My profile</Link>
-          <Link to="/account/booking" className='link'><FaListUl className='acc-icon' />My booking</Link>
-          <Link to="/account/myplaces" className='link'><HiHomeModern className='acc-icon' />My Place</Link>
+          <Link to="/account" className="my-Profile link">
+            <FaUserAlt className="acc-icon" />
+            My profile
+          </Link>
+          <Link to="/account/booking" className="link">
+            <FaListUl className="acc-icon" />
+            My booking
+          </Link>
+          <Link to="/account/myplaces" className="link">
+            <HiHomeModern className="acc-icon" />
+            My Place
+          </Link>
         </div>
         <div className="my-profile-content">
-          <FcBusinessman className='account_dp' />
-          {authorized?<><h2 className='logged-h2'>Logged in<br/> as<br/> {name}({email})</h2>
-          <button onClick={handleLogoutClick} className='logout-btn'>Log Out</button></>:<>
-          <h2 className='logged-h2'>Guest</h2>
-          <Link to="/Login" className='authorized-btn'>Sign up</Link>
-          
-          </>}
-          
+          <FcBusinessman className="account_dp" />
+          {authorized ?
+            <>
+              <h2 className="logged-h2">
+                Logged in
+                <br /> as
+                <br /> {name}({email})
+              </h2>
+              <button onClick={handleLogoutClick} className="logout-btn">
+                Log Out
+              </button>
+            </>
+           : 
+            <>
+              <h2 className="logged-h2">Guest</h2>
+              <Link to="/Login" className="authorized-btn">
+                Sign up
+              </Link>
+            </>
+          }
         </div>
       </div>
-      {showAlert && <CustomAlert onConfirm={confirmLogout} onCancel={cancelLogout} />}
+      {showAlert && (
+        <CustomAlert onConfirm={confirmLogout} onCancel={cancelLogout} />
+      )}
     </>
   );
 };
